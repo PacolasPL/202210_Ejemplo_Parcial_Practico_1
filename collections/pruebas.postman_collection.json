@@ -1,0 +1,44 @@
+{
+	"info": {
+		"_postman_id": "a9250d2f-c497-4017-bae2-c7e3ab21143a",
+		"name": "pruebas",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "23292417"
+	},
+	"item": [
+		{
+			"name": "findAll",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"tests[\"No hay error en el findAll\"] = responseCode.code===200;",
+							"var data = JSON.parse(responseBody);",
+							"tests[\"El arreglo de medicos no esta vacio\"] = data.length > 0;",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://{{ip}}:{{puerto}}/api/medicos",
+					"protocol": "http",
+					"host": [
+						"{{ip}}"
+					],
+					"port": "{{puerto}}",
+					"path": [
+						"api",
+						"medicos"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
